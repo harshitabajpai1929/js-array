@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="main">
+        <div class="tab1">
+          <span> Company  <input type="text" id="company" /></span><br>
+          <span> Model <input type="text" id="model" /></span><br>
+          <span> Memory <input type="text" id="memory" /></span><br>
+          <span> Price <input type="text" id="price" /></span><br>
+                <button onclick="addInfo()" id="Button">add</button>
+                
+        </div>
+              <div id="Display">
+                <table>
+                    <tr>
+                      <th>Company</th>
+                      <th>Model</th>
+                      <th>Memory(GB)</th>
+                      <th>Price(Rs)</th>
+                    </tr>
+                    <td></td>
+                </table>
+              </div>
+    
+              <div id ="demo"></div>
+         
+          <script>
+            var productarray=[];
+            function addInfo(){
+              var tycompany = document.getElementById('company').value;
+              var tymodel = document.getElementById('model').value;
+              var tymemory = document.getElementById('memory').value;
+              var typrice = document.getElementById('price').value;
+              
+              var product= {
+               TyCompany: tycompany,
+                TyModel: tymodel,
+                TyMemory: tymemory,
+               TyPrice: typrice,
+              };
+               productarray.push(product);
+               html = 
+               "<table><tr><th>Company</th><th>Model</th><th>Memory(GB)</th><th>Price(rs)</th></tr>";
+                productarray.forEach((element) => {
+                  html +=
+                  "<tr><td>" +
+                    element.TyCompany +
+                    "</td><td>" +
+                    element.TyModel +
+                    "</td><td>" +
+                      element.TyMemory +
+                      "</td><td>" + 
+                        element.TyPrice +
+                        "</td></tr>";
+                });
+                 html += "</table>";
+                 document.getElementById("Display").innerHTML = html;
+            }
+              
+          </script>
+        
+</body>
+</html>
