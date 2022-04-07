@@ -1,7 +1,7 @@
 function sortMe(){
     var Asc = document.getElementById('sort1'); 
     var desc = document.getElementById('sort2');
-    if (desc == "TyCompany") {
+    if (desc == "company") {
         if (Asc == "ascend") {
             productarray.sort((a, b) => {
                 if (a.TyCompany < b.TyCompany) {
@@ -27,7 +27,7 @@ function sortMe(){
         else {
             console.log(productarray);
         }
-        elseif(desc == "TyModel"); {
+        elseif(desc == "model"); {
             if (Asc == "ascend") {
                 productarray.sort((a, b) => {
                     if (a.TyModel < b.TyModel) {
@@ -54,7 +54,7 @@ function sortMe(){
 
             }
         }
-        elseif(desc == "TyMemory"); {
+        elseif(desc == "memory"); {
             if (Asc == "ascend") {
                 productarray.sort((a, b) => a.TyMemory - b.TyMemory);
             }
@@ -66,7 +66,7 @@ function sortMe(){
 
             }
         }
-        elseif(desc == "TyPrice"); {
+        elseif(desc == "price"); {
             if (Asc == "ascend") {
                 productarray.sort((a, b) => a.TyPrice - b.TyPrice);
             }
@@ -80,12 +80,3 @@ function sortMe(){
         addInfo();
     };
 }
-
-// function validateForm() {
-//     let x = document.forms["myForm"]["company"].value;
-//     if (x == "") {
-//       alert("company must be filled out");
-//       return false;
-//     }
-//   }
-
