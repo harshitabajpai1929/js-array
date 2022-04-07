@@ -1,204 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-          .dropbtn {
-  background-color: rgb(255, 250, 250);
-  color: rgb(5, 4, 4);
-  /* padding: 2%; */
-  /* font-size: 12px; */
-  border: 1px solid black;
-  cursor: pointer;
-  height: 38%;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  background-color: #808880;
-  border: 1px solid rgb(63, 58, 58)
-}
-
-#myInput {
-   box-sizing: border-box; 
-  
-   /* background-position: 14px 12px;  */
-  background-repeat: no-repeat;
-  font-size: 11px;
-   padding: 5px 5px 5px 5px; 
-  /* border: none; */
-  border: 1px solid rgb(110, 108, 108);
-}
-
-#myInput:focus {outline: 1px solid rgb(80, 78, 78);}
-
-.dropdown {
-
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f6f6f6;
-  /* min-width: 230px; */
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-   padding: 2px 2px; 
-  text-decoration: none;
-  display: list-item;
-}
-
-.dropdown a:hover {background-color: rgb(36, 109, 36);}
-
-.show {display:block ;}
-
-form.example input[type=text] {
-  /* padding: 4px; */
-  font-size: 17px;
-  border: 1px solid rgb(32, 32, 32);
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
-  border-radius: 3px;
-  height: 10%;
-}
-
-form.example button {
-  float: left;
-  width: 28%;
-  padding: 4px;
-  background: #f3f4f5;
-  color: rgb(26, 24, 24);
-  font-size: 11px;
-  border: 1px solid rgb(29, 28, 28);
-  cursor: pointer;
-  height: 16%;
-  border-radius: 3px;
-}
-
-form.example button:hover {
-  background: #b5b9bd;
-}
-
-form.example::after {
-  content: "";
-  clear: both;
-  display: block;
-}
-a:hover {
-  background-color: rgb(34, 77, 34);
-}
-</style>
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .dropbtn {
+      background-color: rgb(255, 250, 250);
+      color: rgb(5, 4, 4);
+      border: 1px solid black;
+      cursor: pointer;
+      height: 38%;
+    }
+    #myInput {
+      box-sizing: border-box;
+      background-repeat: no-repeat;
+      font-size: 11px;
+      padding: 5px 5px 5px 5px;
+      border: 1px solid rgb(110, 108, 108);
+    }
+    #myInput:focus {
+      outline: 1px solid rgb(80, 78, 78);
+    }
+    .dropdown {
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f6f6f6;
+      overflow: auto;
+      border: 1px solid #ddd;
+      z-index: 1;
+    }
+    .dropdown-content a {
+      color: black;
+      padding: 2px 2px;
+      text-decoration: none;
+      display: list-item;
+    }
+    .dropdown a:hover {
+      background-color: rgb(36, 109, 36);
+    }
+    .show {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-    
-    <div class="main">
-        <div class="tab1">
-          <label for="Company"></label> Company<input type="text" id="company"><br>
-          <label for="Model"></label> Model <input type="text" id="model"><br>
-          <label for="Memory"></label> Memory <input type="text" id="memory"><br>
-          <label for="Price"></label>Price <input type="text" id="price"><br>
-                <button onclick="addInfo()" id="Button">add</button>
-                
-        </div>
-              <div id="Display">
-                <table>
-                    <tr>
-                      <th>Company</th>
-                      <th>Model</th>
-                      <th>Memory(GB)</th>
-                      <th>Price(Rs)</th>
-                    </tr>
-                    <td></td>
-                </table>
-              </div>
-    
-              <div id ="demo"></div>
-    <div>    
+  <div style="display: block;" class="main">
+    <div class="tab1">
+      <label for="Company">Company:</label><br>
+      <input name="company" type="text" id="company" required><br>
+      <label for="Model">Model:</label><br>
+      <input name="model" type="text" id="model" required><br>
+      <label for="Memory">Memory:</label><br>
+      <input name="memory" type="number" id="memory" required><br>
+      <label for="Price">Price:</label><br>
+      <input name="price" type="number" id="price" required><br>
+      <br>
+      <button type="submit" onclick="addInfo()" id="Button">add</button>
+    </div>
+    <div id="Display">
+      <table>
+        <tr>
+          <th>Company</th>
+          <th>Model</th>
+          <th>Memory(GB)</th>
+          <th>Price(Rs)</th>
+        </tr>
+        <tr></tr>
+        <td></td>
+      </table>
+      <br>
+    </div>
+    <div id="demo"></div>
+    <div>
       <div style="float: left;" class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">Select Field</button>
-         <div id="myDropdown" class="dropdown-content">
-         <input type="text" id="myInput" onkeyup="filterFunction()">
-                  <a href="#company">Company</a>
-                  <a href="#model">Model</a>
-                  <a href="#memory">Memory</a>
-                  <a href="#price">Price</a>
-                 
-         </div>
+        <button onclick="myFunction()" class="dropbtn">Select Field</button>
+        <div id="myDropdown" class="dropdown-content">
+          <input type="text" id="myInput" onkeyup="filterFunction()">
+          <a href="#company">Company</a>
+          <a href="#model">Model</a>
+          <a href="#memory">Memory</a>
+          <a href="#price">Price</a>
+        </div>
       </div>
       <div style="box-sizing: border-box; float: right;">
-           
-      <form class="example" onclick= "" style="margin:auto;max-width:200px;">
-        <input type="text" name="search2"><button type="submit"><i class="fa fa-search"></i>Search</button>
-      </form>
+        <form class="example" style="margin:auto;max-width:400px;" action="">
+          <input style="width: 70%; float: left;" type="text" name="search2"><button style="width: 20%;float: left;"
+            type="submit"><i class="fa fa-search"></i>Search</button>
+        </form>
       </div>
     </div>
-          <script>
-            var productarray=[];
-            function addInfo(){
-              var tycompany = document.getElementById('company').value;
-              var tymodel = document.getElementById('model').value;
-              var tymemory = document.getElementById('memory').value;
-              var typrice = document.getElementById('price').value;
-              
-              var product= {
-               TyCompany: tycompany,
-                TyModel: tymodel,
-                TyMemory: tymemory,
-               TyPrice: typrice,
-              };
-               productarray.push(product);
-               html = 
-               "<table><tr><th>Company</th><th>Model</th><th>Memory(GB)</th><th>Price(rs)</th></tr>";
-                productarray.forEach((element) => {
-                  html +=
-                  "<tr><td>" +
-                    element.TyCompany +
-                    "</td><td>" +
-                    element.TyModel +
-                    "</td><td>" +
-                      element.TyMemory +
-                      "</td><td>" + 
-                        element.TyPrice +
-                        "</td></tr>";
-                });
-                 html += "</table>";
-                 document.getElementById("Display").innerHTML = html;
-            }
-              
-          </script>
-
-          <script>
-              
-              function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function filterFunction() {
-  var input, filter, ul, li, a, i;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  div = document.getElementById("myDropdown");
-  a = div.getElementsByTagName("a");
-  for (i = 0; i < a.length; i++) {
-    txtValue = a[i].textContent || a[i].innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      a[i].style.display = "";
-    } else {
-      a[i].style.display = "none";
+    <br>
+    <br>
+    <div style="justify-content: space-between; display: flex;" id="mid">
+      <div style="float: left;" class="dropdown2">
+        <select name="dropdown2" id="sort1">
+          <option>-Sort-</option>
+          <option id="ascend">Ascending</option>
+          <option id="decend">Decending</option>
+        </select>
+      </div>
+        <br>
+       <div style="float: left;">
+      <select style="float: left;" name="dropdown3" id="sort2">
+        <option value="sort">-Sort by-</option>
+        <option value="company">Company</option>
+        <option value="model">Model</option>
+        <option value="memory">Memory</option>
+        <option value="price">Price</option>
+      </select>
+      <button style="float: right;" onclick="sortMe()" type="submit">submit</button>
+    </div>
+  </div>
+  <script>
+    var productarray = [];
+    function addInfo() {
+      var tycompany = document.getElementById('company').value;
+      var tymodel = document.getElementById('model').value;
+      var tymemory = document.getElementById('memory').value;
+      var typrice = document.getElementById('price').value;
+      var product = {
+        TyCompany: tycompany,
+        TyModel: tymodel,
+        TyMemory: tymemory,
+        TyPrice: typrice,
+      };
+      productarray.push(product);
+      html =
+        "<table><tr><th>Company</th><br><th>Model</th><br><th>Memory(GB)</th><br><th>Price(rs)</th></tr>";
+      productarray.forEach((element) => {
+        html +=
+          "<tr><td>" +
+          element.TyCompany +
+          "</td><td>" +
+          element.TyModel +
+          "</td><td>" +
+          element.TyMemory +
+          "</td><td>" +
+          element.TyPrice +
+          "</td></tr>";
+      });
+      html += "</table>";
+      document.getElementById("Display").innerHTML = html;
     }
-  }
-}
-          </script>
-        
+  </script>
+  <script>
+    function myFunction() {
+      document.getElementById("myDropdown").classList.toggle("show");
+    }
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("myDropdown");
+      a = div.getElementsByTagName("a");
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        } }}
+  </script>
+<script src="script.js"></script>
 </body>
 </html>
