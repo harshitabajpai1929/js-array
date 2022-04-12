@@ -80,3 +80,48 @@ function sortMe(){
         addInfo();
     };
 }
+
+   function updateFun(){
+    var item = document.getElementById("SelectedProduct").value;
+    var index = document.getElementById("Updatedquantity").value;
+    var x =  productarray;
+    
+    Data.TyQuantity = NewQuantity;
+
+    document.getElementById("UpdatedItems").innerHTML = options;
+    document.getElementById("SelectedProducts").innerHTML =options;
+       addInfo();
+
+    }
+
+    productarray.push(product);
+    addInfo();
+
+     var options = "<option>-select field-</option>"
+     productarray.forEach((element, index) => {
+        options += '<option value ="${index}">${element.TyCompany} ${element.TyModel}</option>'
+     });
+     document.getElementById("SelectedProducts").innerHTML = option;
+     document.getElementById("UpdatedItems").innerHTML = option;
+    
+
+     function itemUpdate(){
+         var index = document.getElementById("Updateditems").value
+         var newquantity = document.getElementById("Updatedquantity").value 
+         var data = productarray[index];
+         data.TyQuantity = NewQuantity;
+         addInfo();
+     }
+
+     function del(index){
+        productarray.splice(index,1);
+        addInfo();
+     };
+
+     document.getElementById("box").checked;
+
+     function check(index){
+        var value = check[index];
+        productarray.splice(index,1);
+        addInfo();
+     }

@@ -73,6 +73,7 @@
           <th>Memory(GB)</th>
           <th>Price(Rs)</th>
           <th>Quantity</th>
+          <th>Action</th>
         </tr>
         <tr></tr>
         <td></td>
@@ -126,32 +127,46 @@
          <option>-select product-</option>
          <option></option>
        </select>
-        <input type="text" id="search2">
+        <input type="number" id="searching" placeholder=" quantity">
         <button type="add" id="Btn">add</button>
         <button type="submit" id="Button">Generate Bill</button>
        </div>
-  </div>
+       <br>
+        <div>
+          <select id="SelectedProduct">
+            <option>-select product-</option>
+          </select>
+          <input type="number" id="Updatedquantity" placeholder=" quantity">
+        <button type="update" onclick="updateFun()" id="cbutton">update</button>
+        </div>
+      </div>
   <script>
+
     var productarray = [];
-    function addInfo() {
-      var tycompany = document.getElementById('company').value;
+    function addInfo() { 
+      html =
+        "<table><tr><th>Company</th><br><th>Model</th><br><th>Memory(GB)</th><br><th>Price(rs)</th><th>Quantity</th><th>Action</th></tr>";
+  
+     var tycompany = document.getElementById('company').value;
       var tymodel = document.getElementById('model').value;
       var tymemory = document.getElementById('memory').value;
       var typrice = document.getElementById('price').value;
       var tyquantity = document.getElementById('quantity').value;
-      var product = {
+    
+        var product = {
         TyCompany: tycompany,
         TyModel: tymodel,
         TyMemory: tymemory,
         TyPrice: typrice,
         TyQuantity: tyquantity
       };
+
       productarray.push(product);
-      html =
-        "<table><tr><th>Company</th><br><th>Model</th><br><th>Memory(GB)</th><br><th>Price(rs)</th><th>Quantity</h></tr>";
-      productarray.forEach((element) => {
+       
+      productarray.forEach((element , index) => {
         html +=
-          "<tr><td>" +
+        
+         "<tr><td>" +
           element.TyCompany +
           "</td><td>" +
           element.TyModel +
@@ -161,10 +176,10 @@
           element.TyPrice +
           "</td><td>" +
           element.TyQuantity +
-         "</td></tr>";
-      });
-      html += "</table>";
-      document.getElementById("Display").innerHTML = html;
+         "</td><td><input type='checkbox' id='box'> <button onclick='del(index)' class='delete'>Delete</button></td></tr>";
+         });
+      html += "</table>"
+      document.getElementById("Display").innerHTML = html;  
     }
   </script>
   <script>
